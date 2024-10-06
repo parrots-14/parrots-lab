@@ -99,7 +99,7 @@
                     </style>
                 </head>
                 <body>
-                    <input type="text" id="urlInput" placeholder="enter any website url, make sure it has https in it">
+                    <input type="text" id="urlInput" placeholder="Enter a website URL (e.g., https://www.example.com)">
                     <button onclick="loadWebsite()">Load Website</button>
                     <iframe id="websiteFrame"></iframe>
                     <script>
@@ -107,6 +107,13 @@
                             const url = document.getElementById('urlInput').value;
                             document.getElementById('websiteFrame').src = url;
                         }
+
+                        // Add beforeunload event listener to warn the user about closing the tab
+                        window.addEventListener('beforeunload', function (e) {
+                            const confirmationMessage = 'Are you sure you want to leave? Changes you made may not be saved.';
+                            (e || window.event).returnValue = confirmationMessage; // For most browsers
+                            return confirmationMessage; // For some old browsers
+                        });
                     <\/script>
                 </body>
                 </html>
