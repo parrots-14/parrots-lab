@@ -79,9 +79,6 @@
     </style>
     <script>
         function openCustomPage() {
-            // Get the URL from the input field
-            const url = document.getElementById('urlInput').value;
-
             // Open a new about:blank page
             const newWindow = window.open('about:blank', '_blank');
 
@@ -94,17 +91,23 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Load Website</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 0; }
-                        header { background-color: #333; color: white; padding: 10px; text-align: center; }
-                        iframe { width: 100%; height: calc(100vh - 50px); border: none; }
+                        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+                        input { width: 100%; padding: 10px; margin-bottom: 10px; }
+                        button { padding: 10px; background-color: #333; color: white; border: none; cursor: pointer; }
+                        button:hover { background-color: #575757; }
+                        iframe { width: 100%; height: calc(100vh - 90px); border: none; }
                     </style>
                 </head>
                 <body>
-                    <header>
-                        <h1>Loaded Website</h1>
-                        <p>Displaying: ${url}</p>
-                    </header>
-                    <iframe src="${url}"></iframe>
+                    <input type="text" id="urlInput" placeholder="Enter a website URL (e.g., https://www.example.com)">
+                    <button onclick="loadWebsite()">Load Website</button>
+                    <iframe id="websiteFrame"></iframe>
+                    <script>
+                        function loadWebsite() {
+                            const url = document.getElementById('urlInput').value;
+                            document.getElementById('websiteFrame').src = url;
+                        }
+                    <\/script>
                 </body>
                 </html>
             `);
@@ -124,9 +127,7 @@
         <h2>Overpass 1.0 'Anzu'</h2>
         <p>made this tool in the hopes I get $50 dollars as promised<br>
         this in theory should work on some network blockers<br>
-        will probably keep updating this to keep working so that<br>
-        </p>
-        <input type="text" id="urlInput" class="url-input" placeholder="Enter a website URL (e.g., https://www.example.com)">
+        will probably keep updating this to keep working so that</p>
         <a href="#" class="open-button" onclick="openCustomPage(); return false;">Open Website</a>
     </div>
 
