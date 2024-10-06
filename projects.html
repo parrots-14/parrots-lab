@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>the lab</title>
+    <title>The Lab</title>
     <style>
         * {
             margin: 0;
@@ -56,7 +56,48 @@
             font-size: 18px;
             line-height: 1.6;
         }
+
+        .showcase .open-button {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 10px 15px;
+            margin-top: 10px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .showcase .open-button:hover {
+            background-color: #575757;
+        }
     </style>
+    <script>
+        function openCustomPage() {
+            // Open a new about:blank page
+            const newWindow = window.open('about:blank', '_blank');
+
+            // Write content to the new page
+            newWindow.document.write(`
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Custom Page</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; }
+                        h1 { color: blue; }
+                    </style>
+                </head>
+                <body>
+                    <h1>Welcome to the custom about:blank page!</h1>
+                    <p>This page was dynamically generated using JavaScript.</p>
+                </body>
+                </html>
+            `);
+            newWindow.document.close(); // Finalize the document
+        }
+    </script>
 </head>
 <body>
     <div class="topbar">
@@ -68,16 +109,16 @@
 
     <div class="showcase">
         <h2>Overpass 1.0 'Anzu'</h2>
-        <p>made this tool in the hopes i get $50 dollars as promised<br>
+        <p>made this tool in the hopes I get $50 dollars as promised<br>
         this in theory should work on some network blockers<br>
         will probably keep updating this to keep working so that<br>
         link soon</p>
+        <a href="#" class="open-button" onclick="openCustomPage(); return false;">Open Custom Page</a>
     </div>
 
     <div class="showcase">
-        <h2>coming soon</h2>
+        <h2>Coming Soon</h2>
         <p>coming soon</p>
     </div>
-    
 </body>
 </html>
