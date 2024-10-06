@@ -70,9 +70,18 @@
         .showcase .open-button:hover {
             background-color: #575757;
         }
+
+        .url-input {
+            margin-top: 10px;
+            width: 100%;
+            padding: 8px;
+        }
     </style>
     <script>
         function openCustomPage() {
+            // Get the URL from the input field
+            const url = document.getElementById('urlInput').value;
+
             // Open a new about:blank page
             const newWindow = window.open('about:blank', '_blank');
 
@@ -83,14 +92,14 @@
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Custom Page</title>
+                    <title>Load Website</title>
                     <style>
-                        body { font-family: Arial, sans-serif; padding: 20px; }
-                        h1 { color: blue; }
+                        body { font-family: Arial, sans-serif; margin: 0; }
+                        iframe { width: 100%; height: 100vh; border: none; }
                     </style>
                 </head>
                 <body>
-                    <h1>Pass!</h1>
+                    <iframe src="${url}"></iframe>
                 </body>
                 </html>
             `);
@@ -112,7 +121,8 @@
         this in theory should work on some network blockers<br>
         will probably keep updating this to keep working so that<br>
         link soon</p>
-        <a href="#" class="open-button" onclick="openCustomPage(); return false;">Open Custom Page</a>
+        <input type="text" id="urlInput" class="url-input" placeholder="Enter a website URL (e.g., https://www.example.com)">
+        <a href="#" class="open-button" onclick="openCustomPage(); return false;">Open Website</a>
     </div>
 
     <div class="showcase">
