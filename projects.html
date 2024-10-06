@@ -89,7 +89,7 @@
                 <head>
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>Load Website</title>
+                    <title>who knows</title>
                     <style>
                         body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
                         input { width: 100%; padding: 10px; margin-bottom: 10px; }
@@ -108,17 +108,17 @@
                             document.getElementById('websiteFrame').src = url;
                         }
 
-                        // Add beforeunload event listener to warn the user about closing the tab
+                        // block window closing
                         window.addEventListener('beforeunload', function (e) {
                             const confirmationMessage = 'Are you sure you want to leave? Changes you made may not be saved.';
-                            (e || window.event).returnValue = confirmationMessage; // For most browsers
-                            return confirmationMessage; // For some old browsers
+                            (e || window.event).returnValue = confirmationMessage; // for new stuff
+                            return confirmationMessage; // for older stuff
                         });
                     <\/script>
                 </body>
                 </html>
             `);
-            newWindow.document.close(); // Finalize the document
+            newWindow.document.close(); // no more editing
         }
     </script>
 </head>
@@ -137,9 +137,7 @@
         will probably keep updating this to keep working so that<br>
         <br>
         1.1 changelog:<br>
-        added a beforeunload so that<br>
-        the tab cant be closed by external<br>
-        applications hopefully</p>
+        added a beforeunload so that the tab cant be closed</p>
         <a href="#" class="open-button" onclick="openCustomPage(); return false;">Open Website</a>
     </div>
 
